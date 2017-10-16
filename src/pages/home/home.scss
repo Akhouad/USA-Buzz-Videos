@@ -1,0 +1,156 @@
+$app-color : #E62832;
+@import url('https://fonts.googleapis.com/css?family=Cairo:400,700');
+
+@keyframes rotate {
+  from{
+    transform:translateY(-50%) rotate(0)
+  }
+  to{
+    transform:translateY(-50%) rotate(360deg);
+  }
+}
+
+page-home {
+  ion-header{
+    background-color: $app-color!important;
+    line-height:60px;
+    text-align:center;
+
+    .title{
+      font-size:20px;
+      color:#fff;
+    }
+  }
+
+  ion-content{
+    position:relative;
+    background-color: #eee!important;
+    font-family: 'Cairo', sans-serif!important;
+
+    &:before{
+      content:'';
+      position:absolute;
+      top: 0;
+      left:0;
+      width:100%;
+      height:25%;
+      background-color: $app-color;
+    }
+
+    ion-card{
+      box-shadow: 0 0 0 0 transparent!important;
+
+      &.top{
+        .card-image{
+          height:150px;
+          overflow:hidden;
+        }
+      }
+
+      .video-date{
+        color: #c1c4b2;
+      }
+
+      .video-author{
+        background-color: $app-color;
+        padding:4px 7px;
+        border-radius:3px;
+        color:#fff;
+        display:inline-block;
+        margin-top:10px;
+      }
+
+      &:not(.top){
+        .card-image{
+          width:100px;
+          float:left;
+          display:list-item;
+          vertical-align:middle;
+        }
+
+        ion-card-content{
+          float:left;
+          width:calc(100% - 100px);
+          padding:10px!important;
+
+          .card-title-ios{
+            margin:0!important;
+            padding:0!important;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+modal{
+  ion-header{
+    background-color: $app-color!important;
+    padding:10px 10px;
+
+    .title{
+      float:left;
+      color:#fff;
+      font-size:20px;
+      width:calc(100% - 30px);
+    }
+
+    .close{
+      float:right;
+      padding:7px 10px;
+      background-color: #fff;
+      color:$app-color;
+      border-radius:3px;
+      width:30px;
+
+      ion-icon{
+        margin:0!important;
+        padding:0!important;
+      }
+    }
+  }
+
+  ion-content{
+    .video-date{
+      color: #c1c4b2;
+    }
+
+    .video-author{
+      background-color: $app-color;
+      padding:4px 7px;
+      border-radius:3px;
+      color:#fff;
+      display:inline-block;
+      margin-top:10px;
+    }
+
+    iframe{
+      margin-top:20px;
+    }
+  }
+}
+
+ion-footer{
+  line-height:50px;
+  text-align:center;
+  display:inline-block;
+
+  .pagination{
+    display:inline-block;
+
+    div{
+      display:inline-block;
+      height:30px;
+      line-height:30px;
+      width:30px;
+      text-align:center;
+      color:$app-color;
+      border-radius:3px;
+
+      &.active{
+        background-color: #fff;
+      }
+    }
+  }
+}

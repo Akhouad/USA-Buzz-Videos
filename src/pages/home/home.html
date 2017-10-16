@@ -1,0 +1,35 @@
+<ion-header>
+  <div class="title">
+    Most Popular Videos in USA
+  </div>
+</ion-header>
+<ion-content>
+  <ion-card *ngFor="let video of videos | slice:from:to, let i = index"
+            [ngClass]="{'top' : (i == 0)}"
+            (click)="openModal({
+            id: video.id,
+            title: video.snippet.title,
+            author: video.snippet.channelTitle,
+            date: video.snippet.publishedAt
+          })">
+    <div class="card-image">
+      <img src="{{video.snippet.thumbnails.medium.url}}"/>
+    </div>
+    <ion-card-content>
+      <ion-card-title>
+        {{video.snippet.title}}
+      </ion-card-title>
+      <div class="video-date">
+        {{video.snippet.publishedAt | slice:0:10}}
+      </div>
+      <div class="video-author">
+        {{video.snippet.channelTitle}}
+      </div>
+    </ion-card-content>
+  </ion-card>
+</ion-content>
+<ion-footer fixed>
+  <div class="pagination">
+    <div *ngFor="let i of [1,2,3,4,5]" [ngClass]="setPageClass(i)" (click)="pageClicked(i)">{{i}}</div>
+  </div>
+</ion-footer>
